@@ -15,6 +15,7 @@ namespace BNSBan
 
     public class BanCheck
     {
+        private static string recordURL = "https://raw.githubusercontent.com/bnsblacklist/bnsblacklist.records/master/";
         public List<BanRecord> records;
 
         public BanCheck()

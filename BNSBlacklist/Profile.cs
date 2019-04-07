@@ -60,6 +60,7 @@ namespace BNSBan
                 string apiurl = SilverssURL + region + "/" + processedCharname;
                 using (var webClient = new System.Net.WebClient())
                 {
+                    webClient.Encoding = Encoding.UTF8;
                     string json;
                     JsonValue result;
                     try {
