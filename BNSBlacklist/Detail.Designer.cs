@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new System.Windows.Forms.ListViewItem.ListViewSubItem[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new System.Windows.Forms.ListViewItem.ListViewSubItem[] {
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "0", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)))),
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "None", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)))),
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "None", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))))}, -1);
@@ -41,13 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.equipments = new System.Windows.Forms.ListBox();
             this.record = new System.Windows.Forms.ListView();
-            this.img = new System.Windows.Forms.PictureBox();
             this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Reason = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RecordLink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.img = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.altlist = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.img)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // charname
@@ -172,9 +174,9 @@
             this.record.ForeColor = System.Drawing.Color.White;
             this.record.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.record.HideSelection = false;
-            listViewItem5.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
             this.record.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem4});
             this.record.Location = new System.Drawing.Point(281, 318);
             this.record.MultiSelect = false;
             this.record.Name = "record";
@@ -183,16 +185,6 @@
             this.record.TabIndex = 8;
             this.record.UseCompatibleStateImageBehavior = false;
             this.record.View = System.Windows.Forms.View.Details;
-            // 
-            // img
-            // 
-            this.img.Image = global::BNSBan.Properties.Resources.nocharimg;
-            this.img.Location = new System.Drawing.Point(22, 108);
-            this.img.Name = "img";
-            this.img.Size = new System.Drawing.Size(246, 392);
-            this.img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.img.TabIndex = 9;
-            this.img.TabStop = false;
             // 
             // Code
             // 
@@ -207,6 +199,16 @@
             // 
             this.RecordLink.Text = "RecordLink";
             this.RecordLink.Width = 232;
+            // 
+            // img
+            // 
+            this.img.Image = global::BNSBan.Properties.Resources.nocharimg;
+            this.img.Location = new System.Drawing.Point(22, 108);
+            this.img.Name = "img";
+            this.img.Size = new System.Drawing.Size(246, 392);
+            this.img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.img.TabIndex = 9;
+            this.img.TabStop = false;
             // 
             // label4
             // 
@@ -244,13 +246,23 @@
             this.altlist.TabIndex = 11;
             this.altlist.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.altlist_MouseDoubleClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BNSBan.Properties.Resources.detailbox;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1069, 707);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::BNSBan.Properties.Resources.detailbox;
-            this.ClientSize = new System.Drawing.Size(1072, 711);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(1070, 708);
             this.Controls.Add(this.altlist);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.img);
@@ -263,11 +275,14 @@
             this.Controls.Add(this.aplarge);
             this.Controls.Add(this.charinfo);
             this.Controls.Add(this.charname);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Detail";
             this.Text = "Detail";
             this.Load += new System.EventHandler(this.Detail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.img)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +305,6 @@
         private System.Windows.Forms.ColumnHeader RecordLink;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox altlist;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

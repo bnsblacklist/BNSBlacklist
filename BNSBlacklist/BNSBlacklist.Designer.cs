@@ -188,6 +188,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BNSBlacklist";
             this.Text = "BnsBlacklist";
             this.Load += new System.EventHandler(this.BNSBan_Load);
