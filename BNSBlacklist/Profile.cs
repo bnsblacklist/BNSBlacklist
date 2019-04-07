@@ -22,6 +22,7 @@ namespace BNSBan
         public int hmlevel;
         public string pclass;
         public string server;
+        public string region;
         public string guild;
         public string build;
         public int ap;
@@ -78,6 +79,7 @@ namespace BNSBan
                     Profile p = new Profile();
                     try
                     {
+                        p.region = region;
                         p.accountName = result["accountName"];
                         p.characterName = result["characterName"];
                         foreach (JsonValue alt in result["otherNames"])

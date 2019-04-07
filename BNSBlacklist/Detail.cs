@@ -79,6 +79,30 @@ namespace BNSBan
             else
                 equipments.Items.Add("MystBadge: " + pf.equipments.mysticbadge);
             img.ImageLocation = pf.img;
+
+            bool blacklist = false;
+            bool warning = false;
+            record.Items.Clear();
+            foreach (BanRecord rec in check.records)
+            {
+                string[] row = { rec.bancode, rec.reason, rec.url };
+                var listViewItem = new ListViewItem(row);
+                record.Items.Add(listViewItem);
+                if (rec.isBan())
+                {
+                    blacklist = true;
+                } else if(rec.isWarning())
+                {
+                    warning = true;
+                }
+            }
+            if (blacklist)
+            {
+                charname.ForeColor = Color.FromArgb(196, 19, 48);
+            } else if (warning)
+            {
+                charname.ForeColor = Color.FromArgb(236, 135, 40);
+            }
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -89,6 +113,16 @@ namespace BNSBan
         private void altlist_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Clipboard.SetText(altlist.SelectedItem.ToString());
+        }
+
+        private void record_DoubleClick(object sender, EventArgs e)
+        {
+            if(record.SelectedItems.Count > 0)
+            {
+                var item = record.SelectedItems[0];
+                string url = item.SubItems[item.SubItems.Count - 1].Text;
+                System.Diagnostics.Process.Start(url);
+            }
         }
     }
 }

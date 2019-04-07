@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new System.Windows.Forms.ListViewItem.ListViewSubItem[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new System.Windows.Forms.ListViewItem.ListViewSubItem[] {
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "0", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)))),
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "None", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)))),
             new System.Windows.Forms.ListViewItem.ListViewSubItem(null, "None", System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104))))), new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134))))}, -1);
@@ -174,9 +174,9 @@
             this.record.ForeColor = System.Drawing.Color.White;
             this.record.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.record.HideSelection = false;
-            listViewItem4.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.record.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.record.Location = new System.Drawing.Point(281, 318);
             this.record.MultiSelect = false;
             this.record.Name = "record";
@@ -185,6 +185,7 @@
             this.record.TabIndex = 8;
             this.record.UseCompatibleStateImageBehavior = false;
             this.record.View = System.Windows.Forms.View.Details;
+            this.record.DoubleClick += new System.EventHandler(this.record_DoubleClick);
             // 
             // Code
             // 

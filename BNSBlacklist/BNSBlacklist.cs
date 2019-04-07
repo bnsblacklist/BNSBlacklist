@@ -65,7 +65,28 @@ namespace BNSBan
                     statusImg.Image = StatusImg.noban;
                 } else
                 {
-                    statusImg.Image = StatusImg.ban;
+                    bool blacklist = false;
+                    bool warning = false;
+                    foreach (BanRecord record in check.records)
+                    {
+                        if (record.isBan())
+                        {
+                            blacklist = true;
+                        } else if(record.isWarning())
+                        {
+                            warning = true;
+                        }
+                    }
+                    if(blacklist)
+                    {
+                        statusImg.Image = StatusImg.ban;
+                    } else if(warning)
+                    {
+                        statusImg.Image = StatusImg.reported;
+                    } else
+                    {
+                        statusImg.Image = StatusImg.noban;
+                    }
                 }
                 
                 detailsbtn.Visible = true;
