@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BNSBan.Resources;
+using System.Diagnostics;
 
 namespace BNSBan
 {
@@ -14,6 +16,7 @@ namespace BNSBan
     {
         private readonly Profile pf;
         private readonly BanCheck check;
+        private ButtonImageSet reportImg;
 
         public Detail(Profile pf, BanCheck check)
         {
@@ -103,6 +106,10 @@ namespace BNSBan
             {
                 charname.ForeColor = Color.FromArgb(236, 135, 40);
             }
+            reportImg = new ButtonImageSet();
+            reportImg.normal = DetailsWindowBtns.report_normal;
+            reportImg.hover = DetailsWindowBtns.report_hover;
+            reportBtn.Image = reportImg.normal;
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -123,6 +130,21 @@ namespace BNSBan
                 string url = item.SubItems[item.SubItems.Count - 1].Text;
                 System.Diagnostics.Process.Start(url);
             }
+        }
+
+        private void reportBtn_MouseEnter(object sender, EventArgs e)
+        {
+            reportBtn.Image = reportImg.hover;
+        }
+
+        private void reportBtn_MouseLeave(object sender, EventArgs e)
+        {
+            reportBtn.Image = reportImg.normal;
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            Process.Start(".\\BNSBanRecordGen.exe", pf.region + " \"" + pf.characterName + "\"");
         }
     }
 }

@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BNSBlacklist));
             this.charname = new System.Windows.Forms.TextBox();
             this.spkb = new System.Windows.Forms.Button();
-            this.search_btn_img_lst = new System.Windows.Forms.ImageList(this.components);
             this.resultPanel = new System.Windows.Forms.Panel();
             this.detailsbtn = new System.Windows.Forms.Button();
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.details_btn_img_list = new System.Windows.Forms.ImageList(this.components);
             this.searchbtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,13 +63,6 @@
             this.spkb.Text = "SP Char Keyboard";
             this.spkb.UseVisualStyleBackColor = true;
             this.spkb.Click += new System.EventHandler(this.spkb_Click);
-            // 
-            // search_btn_img_lst
-            // 
-            this.search_btn_img_lst.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("search_btn_img_lst.ImageStream")));
-            this.search_btn_img_lst.TransparentColor = System.Drawing.Color.Black;
-            this.search_btn_img_lst.Images.SetKeyName(0, "search_normal.png");
-            this.search_btn_img_lst.Images.SetKeyName(1, "search_hover.png");
             // 
             // resultPanel
             // 
@@ -125,13 +115,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(178, 53);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            // 
-            // details_btn_img_list
-            // 
-            this.details_btn_img_list.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("details_btn_img_list.ImageStream")));
-            this.details_btn_img_list.TransparentColor = System.Drawing.Color.Black;
-            this.details_btn_img_list.Images.SetKeyName(0, "details_normal.png");
-            this.details_btn_img_list.Images.SetKeyName(1, "details_hover.png");
             // 
             // searchbtn
             // 
@@ -208,12 +191,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox charname;
         private System.Windows.Forms.Button spkb;
-        private System.Windows.Forms.ImageList search_btn_img_lst;
         private System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.Panel resultPanel;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox statusImg;
-        private System.Windows.Forms.ImageList details_btn_img_list;
         private System.Windows.Forms.Button detailsbtn;
     }
 }

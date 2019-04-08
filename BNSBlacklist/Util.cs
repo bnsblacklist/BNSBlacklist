@@ -37,7 +37,7 @@ namespace BNSBan
         }*/
     }
 
-    class ButtonImageSet
+    public class ButtonImageSet
     {
         public Bitmap normal;
         public Bitmap hover;

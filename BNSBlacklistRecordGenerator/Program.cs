@@ -16,7 +16,7 @@ namespace BNSBlacklistRecordCreater
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RecordCreater());
+            Application.Run(new RecordGenerator());
         }
     }
 }

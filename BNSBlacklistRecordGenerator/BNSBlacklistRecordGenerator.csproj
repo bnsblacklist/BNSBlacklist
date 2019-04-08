@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ACA224F6-AF17-43D7-8F77-638B4D6029B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BNSBlacklistRecordCreater</RootNamespace>
-    <AssemblyName>BNSBlacklistRecordCreater</AssemblyName>
+    <RootNamespace>BNSBlacklistRecordGenerator</RootNamespace>
+    <AssemblyName>BNSBanRecordGen</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\BNSBlacklist\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\BNSBlacklist\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -46,14 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CreateRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CreateRecord.Designer.cs">
+      <DependentUpon>CreateRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordGenerator.Designer.cs">
+      <DependentUpon>RecordGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\CreateRecordBtn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateRecordBtn.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CreateRecord.resx">
+      <DependentUpon>CreateRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +76,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RecordGenerator.resx">
+      <DependentUpon>RecordGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CreateRecordBtn.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateRecordBtn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +97,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BNSBlacklist\BNSBlacklist.csproj">
+      <Project>{1936d0db-c04f-48f1-a779-8b2aa51b092d}</Project>
+      <Name>BNSBlacklist</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\detailbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nocharimg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submit_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submit_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
