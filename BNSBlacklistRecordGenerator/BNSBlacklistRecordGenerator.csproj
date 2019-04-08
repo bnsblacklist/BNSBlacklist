@@ -46,12 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProof.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProof.Designer.cs">
+      <DependentUpon>AddProof.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateRecord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateRecord.Designer.cs">
       <DependentUpon>CreateRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageInfo.cs" />
     <Compile Include="RecordGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +72,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateRecordBtn.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResultWrapper.cs" />
+    <EmbeddedResource Include="AddProof.resx">
+      <DependentUpon>AddProof.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateRecord.resx">
       <DependentUpon>CreateRecord.cs</DependentUpon>
     </EmbeddedResource>

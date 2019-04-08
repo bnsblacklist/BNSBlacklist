@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 using BNSBan;
 
-namespace BNSBlacklistRecordCreater
+namespace BNSBlacklistRecordGenerator
 {
     public partial class RecordGenerator : Form
     {

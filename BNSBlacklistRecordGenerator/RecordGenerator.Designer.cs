@@ -1,4 +1,4 @@
-﻿namespace BNSBlacklistRecordCreater
+﻿namespace BNSBlacklistRecordGenerator
 {
     partial class RecordGenerator
     {

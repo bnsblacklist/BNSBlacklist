@@ -10,18 +10,23 @@ using System.Windows.Forms;
 using BNSBan.Resources;
 using System.Diagnostics;
 using BNSBlacklistRecordGenerator.Resources;
+using BNSBan;
 
-namespace BNSBan
+namespace BNSBlacklistRecordGenerator
 {
+      
     public partial class CreateRecord : Form
     {
         private readonly Profile pf;
         private readonly BanCheck check;
         private ButtonImageSet submitImg;
+        private ImageInfo imginfo;
 
         public CreateRecord(Profile pf, BanCheck check)
         {
             InitializeComponent();
+            imginfo = new ImageInfo();
+            proves.LargeImageList = imginfo.GetImageList();
             this.pf = pf;
             this.check = check;
             charname.Text = pf.accountName + "[" + pf.characterName + "]";
@@ -60,6 +65,7 @@ namespace BNSBan
             submitImg.normal = CreateRecordBtn.submit_normal;
             submitImg.hover = CreateRecordBtn.submit_hover;
             submitBtn.Image = submitImg.normal;
+            time.CustomFormat = "MM/dd/yyyy hh:mm:ss";
         }
 
         private void Detail_Load(object sender, EventArgs e)
@@ -86,6 +92,53 @@ namespace BNSBan
         private void reportBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addmore_Click(object sender, EventArgs e)
+        {
+            ResultWrapper<string> wrapper = new ResultWrapper<string>("");
+            AddProof ap = new AddProof(wrapper);
+            ap.ShowDialog(this);
+            if (wrapper.getResult().Equals(""))
+            {
+                return;
+            }
+            int addIndex = imginfo.AddImage(wrapper.getResult(), "picture");
+            if(addIndex >= 0)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = "picture";
+                item.ImageIndex = addIndex;
+                proves.Items.Add(item);
+            }
+            if(imginfo.Count() > 0)
+            {
+                removeproof.Enabled = true;
+            } else
+            {
+                removeproof.Enabled = false;
+            }
+        }
+
+        private void removeproof_Click(object sender, EventArgs e)
+        {
+            if (proves.SelectedItems.Count > 0)
+            {
+                int index = proves.SelectedItems[0].ImageIndex;
+                proves.Items.Remove(proves.SelectedItems[0]);
+                imginfo.RemoveImage(index);
+                for(int i = 0; i < proves.Items.Count; i++)
+                {
+                    if(proves.Items[i].ImageIndex > index)
+                    {
+                        proves.Items[i].ImageIndex--;
+                    }
+                }
+            }
+            if(imginfo.Count() == 0)
+            {
+                removeproof.Enabled = false;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BNSBan
+﻿namespace BNSBlacklistRecordGenerator
 {
     partial class CreateRecord
     {
@@ -46,11 +46,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.proves = new System.Windows.Forms.ListView();
             this.addmore = new System.Windows.Forms.Button();
             this.removeproof = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -297,14 +299,14 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Proves:";
             // 
-            // listView1
+            // proves
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104)))));
-            this.listView1.Location = new System.Drawing.Point(785, 140);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(273, 509);
-            this.listView1.TabIndex = 21;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.proves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(73)))), ((int)(((byte)(104)))));
+            this.proves.Location = new System.Drawing.Point(785, 140);
+            this.proves.Name = "proves";
+            this.proves.Size = new System.Drawing.Size(273, 453);
+            this.proves.TabIndex = 21;
+            this.proves.UseCompatibleStateImageBehavior = false;
             // 
             // addmore
             // 
@@ -315,6 +317,7 @@
             this.addmore.TabIndex = 22;
             this.addmore.Text = "+";
             this.addmore.UseVisualStyleBackColor = true;
+            this.addmore.Click += new System.EventHandler(this.addmore_Click);
             // 
             // removeproof
             // 
@@ -326,6 +329,7 @@
             this.removeproof.TabIndex = 23;
             this.removeproof.Text = "-";
             this.removeproof.UseVisualStyleBackColor = true;
+            this.removeproof.Click += new System.EventHandler(this.removeproof_Click);
             // 
             // label5
             // 
@@ -351,6 +355,27 @@
             this.checkBox2.Text = "Check to generate a submission package. Otherwise will only save locally.";
             this.checkBox2.UseVisualStyleBackColor = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(783, 597);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 25);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Insident Time:";
+            // 
+            // time
+            // 
+            this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.time.Location = new System.Drawing.Point(785, 628);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(273, 22);
+            this.time.TabIndex = 28;
+            // 
             // CreateRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,11 +384,13 @@
             this.BackgroundImage = global::BNSBlacklistRecordGenerator.Properties.Resources.detailbox;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1070, 708);
+            this.Controls.Add(this.time);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.removeproof);
             this.Controls.Add(this.addmore);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.proves);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -413,10 +440,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView proves;
         private System.Windows.Forms.Button addmore;
         private System.Windows.Forms.Button removeproof;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker time;
     }
 }
