@@ -68,7 +68,7 @@ namespace BNSBlacklistRecordGenerator
             time.CustomFormat = "MM/dd/yyyy hh:mm:ss";
         }
 
-        private void Detail_Load(object sender, EventArgs e)
+        private void CreateRecord_Load(object sender, EventArgs e)
         {
 
         }
@@ -79,19 +79,45 @@ namespace BNSBlacklistRecordGenerator
         }
 
 
-        private void reportBtn_MouseEnter(object sender, EventArgs e)
+        private void submitBtn_MouseEnter(object sender, EventArgs e)
         {
             submitBtn.Image = submitImg.hover;
         }
 
-        private void reportBtn_MouseLeave(object sender, EventArgs e)
+        private void submitBtn_MouseLeave(object sender, EventArgs e)
         {
             submitBtn.Image = submitImg.normal;
         }
 
-        private void reportBtn_Click(object sender, EventArgs e)
+        private void submitBtn_Click(object sender, EventArgs e)
         {
-
+            string codeT = code.Text;
+            if(codeT.Equals(""))
+            {
+                MessageBox.Show("Failed to generate blacklist record", "Please choose the reason before generating record.", MessageBoxButtons.OK);
+                return;
+            }
+            codeT = codeT.Split('-')[0].Replace(" ", string.Empty);
+            BlacklistRecordGen gen = new BlacklistRecordGen(pf);
+            gen.SetContent("code", codeT + "  ");
+            gen.SetContent("name", pf.characterName + "  ");
+            gen.SetContent("reason", reason.Text + "  ");
+            StringBuilder proofAll = new StringBuilder();
+            foreach (ListViewItem item in proves.Items)
+            {
+                int index = item.ImageIndex;
+                string img = "![Proof"+ index.ToString() +"]("+ imginfo.GetURL(index) + " \"Proof"+ index.ToString() +"\")  \n";
+                proofAll.Append(img);
+            }
+            gen.SetContent("proof", proofAll.ToString() + "  ");
+            gen.SetContent("time", time.Text + "  ");
+            bool upload = upl.Checked && !codeT.EndsWith("999");
+            string rootfolder = "./records/" + pf.region + "/";
+            Console.WriteLine(time.Text);
+            if (gen.Generate(rootfolder, DateTime.Parse(time.Text).ToString("yyyyMMddhhmmss"),link.Checked, upload))
+            {
+                MessageBox.Show("Success", "Record generated.", MessageBoxButtons.OK);
+            }
         }
 
         private void addmore_Click(object sender, EventArgs e)

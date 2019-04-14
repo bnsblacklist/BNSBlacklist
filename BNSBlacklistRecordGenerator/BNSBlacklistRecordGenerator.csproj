@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Markdig, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdig.0.16.0\lib\net40\Markdig.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,12 +56,14 @@
     <Compile Include="AddProof.Designer.cs">
       <DependentUpon>AddProof.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlacklistRecordGen.cs" />
     <Compile Include="CreateRecord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateRecord.Designer.cs">
       <DependentUpon>CreateRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="DictionarySerializer.cs" />
     <Compile Include="ImageInfo.cs" />
     <Compile Include="RecordGenerator.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CreateRecordBtn.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,7 +114,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />

@@ -41,16 +41,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.submitBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.link = new System.Windows.Forms.CheckBox();
             this.code = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.reason = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.proves = new System.Windows.Forms.ListView();
             this.addmore = new System.Windows.Forms.Button();
             this.removeproof = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.upl = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.img)).BeginInit();
@@ -212,9 +212,9 @@
             this.submitBtn.Size = new System.Drawing.Size(77, 42);
             this.submitBtn.TabIndex = 14;
             this.submitBtn.UseVisualStyleBackColor = false;
-            this.submitBtn.Click += new System.EventHandler(this.reportBtn_Click);
-            this.submitBtn.MouseEnter += new System.EventHandler(this.reportBtn_MouseEnter);
-            this.submitBtn.MouseLeave += new System.EventHandler(this.reportBtn_MouseLeave);
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
+            this.submitBtn.MouseEnter += new System.EventHandler(this.submitBtn_MouseEnter);
+            this.submitBtn.MouseLeave += new System.EventHandler(this.submitBtn_MouseLeave);
             // 
             // label1
             // 
@@ -228,19 +228,19 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Reason to blacklist this character:";
             // 
-            // checkBox1
+            // link
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(106, 513);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(154, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "Link alts with this character";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.link.AutoSize = true;
+            this.link.BackColor = System.Drawing.Color.Transparent;
+            this.link.Checked = true;
+            this.link.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.link.ForeColor = System.Drawing.Color.White;
+            this.link.Location = new System.Drawing.Point(106, 513);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(154, 17);
+            this.link.TabIndex = 16;
+            this.link.Text = "Link alts with this character";
+            this.link.UseVisualStyleBackColor = false;
             // 
             // code
             // 
@@ -277,15 +277,15 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Explainsion (markdown surported):";
             // 
-            // textBox1
+            // reason
             // 
-            this.textBox1.Location = new System.Drawing.Point(284, 449);
-            this.textBox1.MaximumSize = new System.Drawing.Size(489, 200);
-            this.textBox1.MinimumSize = new System.Drawing.Size(489, 200);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(489, 200);
-            this.textBox1.TabIndex = 19;
+            this.reason.Location = new System.Drawing.Point(284, 449);
+            this.reason.MaximumSize = new System.Drawing.Size(489, 200);
+            this.reason.MinimumSize = new System.Drawing.Size(489, 200);
+            this.reason.Multiline = true;
+            this.reason.Name = "reason";
+            this.reason.Size = new System.Drawing.Size(489, 200);
+            this.reason.TabIndex = 19;
             // 
             // label3
             // 
@@ -343,17 +343,17 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Do you want to generate a upload package?";
             // 
-            // checkBox2
+            // upl
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.ForeColor = System.Drawing.Color.PaleGreen;
-            this.checkBox2.Location = new System.Drawing.Point(285, 400);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(375, 17);
-            this.checkBox2.TabIndex = 26;
-            this.checkBox2.Text = "Check to generate a submission package. Otherwise will only save locally.";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.upl.AutoSize = true;
+            this.upl.BackColor = System.Drawing.Color.Transparent;
+            this.upl.ForeColor = System.Drawing.Color.PaleGreen;
+            this.upl.Location = new System.Drawing.Point(285, 400);
+            this.upl.Name = "upl";
+            this.upl.Size = new System.Drawing.Size(375, 17);
+            this.upl.TabIndex = 26;
+            this.upl.Text = "Check to generate a submission package. Otherwise will only save locally.";
+            this.upl.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -386,16 +386,16 @@
             this.ClientSize = new System.Drawing.Size(1070, 708);
             this.Controls.Add(this.time);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.upl);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.removeproof);
             this.Controls.Add(this.addmore);
             this.Controls.Add(this.proves);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.reason);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.code);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.link);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.altlist);
@@ -413,7 +413,7 @@
             this.MaximizeBox = false;
             this.Name = "CreateRecord";
             this.Text = "Create Record";
-            this.Load += new System.EventHandler(this.Detail_Load);
+            this.Load += new System.EventHandler(this.CreateRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.img)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -435,16 +435,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox link;
         private System.Windows.Forms.ComboBox code;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox reason;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView proves;
         private System.Windows.Forms.Button addmore;
         private System.Windows.Forms.Button removeproof;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox upl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker time;
     }

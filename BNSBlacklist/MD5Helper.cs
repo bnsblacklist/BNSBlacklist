@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace BNSBan
 {
-    class MD5Helper
+    public class MD5Helper
     {
         public static string GetMd5Hash(string input)
         {
