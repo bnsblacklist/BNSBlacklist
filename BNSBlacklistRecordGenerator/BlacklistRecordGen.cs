@@ -155,7 +155,8 @@ namespace BNSBlacklistRecordGenerator
 
         protected string getDescription(string code)
         {
-            switch (code)
+            string codeT = code.Replace(" ", string.Empty);
+            switch (codeT)
             {
                 case "B001":
                     return "Scam (Item Sellers / Gold Sellers)";
@@ -326,7 +327,7 @@ namespace BNSBlacklistRecordGenerator
                     }
                 }
                 //Add current case
-                string caseRecd = "RECD|" + replacement["code"] + "|" + getDescription(replacement["code"]) + "|" + caseName;
+                string caseRecd = "RECD|" + replacement["code"].Replace(" ", string.Empty) + "|" + getDescription(replacement["code"]) + "|" + caseName;
                 build.Append(caseRecd + "\n");
                 fileList.Add(clinkfile, build.ToString());
                 writer = new StreamWriter(clinkfile);
@@ -356,7 +357,7 @@ namespace BNSBlacklistRecordGenerator
                     index++;
                 }
                 //Add current case
-                string caseRecd = "RECD|" + replacement["code"] + "|" + getDescription(replacement["code"]) + "|" + caseName;
+                string caseRecd = "RECD|" + replacement["code"].Replace(" ", string.Empty) + "|" + getDescription(replacement["code"]) + "|" + caseName;
                 build.Append(caseRecd + "\n");
                 fileList.Add(clinkfile, build.ToString());
                 writer = new StreamWriter(clinkfile);

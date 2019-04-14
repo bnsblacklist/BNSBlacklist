@@ -97,8 +97,8 @@ namespace BNSBlacklistRecordGenerator
                 MessageBox.Show("Failed to generate blacklist record", "Please choose the reason before generating record.", MessageBoxButtons.OK);
                 return;
             }
-            codeT = codeT.Split('-')[0].Replace(" ", string.Empty);
             BlacklistRecordGen gen = new BlacklistRecordGen(pf);
+            codeT = codeT.Split('-')[0];
             gen.SetContent("code", codeT + "  ");
             gen.SetContent("name", pf.characterName + "  ");
             gen.SetContent("reason", reason.Text + "  ");
