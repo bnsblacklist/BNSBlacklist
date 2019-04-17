@@ -76,6 +76,7 @@
     <Compile Include="BNSBlacklist.Designer.cs">
       <DependentUpon>BNSBlacklist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config.cs" />
     <Compile Include="Detail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +101,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StatusImg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SPCharKB.cs">
       <SubType>Form</SubType>
@@ -135,6 +142,9 @@
     <EmbeddedResource Include="Resources\StatusImg.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>StatusImg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPCharKB.resx">
       <DependentUpon>SPCharKB.cs</DependentUpon>
@@ -188,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\report_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild" />

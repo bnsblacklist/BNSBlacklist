@@ -52,6 +52,25 @@ namespace BNSBlacklistRecordGenerator
             }
 
             BanCheck bc = BanCheck.RetriveBanRecords(pf);
+            StringBuilder linkmdString = new StringBuilder("| ");
+            linkmdString.Append(pf.accountName + " | " + pf.characterName);
+            foreach (string alt in pf.altsName)
+            {
+                linkmdString.Append(" </br> " + alt);
+            }
+            linkmdString.Append(" | " + MD5Helper.GetMd5Hash(pf.characterName));
+            foreach (string alt in pf.altsName)
+            {
+                linkmdString.Append(" </br> " + MD5Helper.GetMd5Hash(alt));
+            }
+            linkmdString.Append(" | [" + MD5Helper.GetMd5Hash(pf.characterName).Substring(0, 6) + "](/" + pf.region + "/" + MD5Helper.GetMd5Hash(pf.characterName) + "/)");
+            foreach (string alt in pf.altsName)
+            {
+                string tempmd5 = MD5Helper.GetMd5Hash(alt);
+                linkmdString.Append(" </br> [" + tempmd5.Substring(0, 6) + "](/" + pf.region + "/" + tempmd5 + "/)");
+            }
+            linkmdString.Append("|");
+            Console.WriteLine(linkmdString.ToString());
             CreateRecord cr = new CreateRecord(pf, bc);
             cr.Show();
         }

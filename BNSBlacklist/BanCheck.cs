@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace BNSBan
 {
@@ -38,11 +39,13 @@ namespace BNSBan
         public string uid;
         public List<BanRecord> records;
         private List<string> checkeduid;
+        private List<string> checkedluid;
 
         public BanCheck()
         {
             records = new List<BanRecord>();
             checkeduid = new List<string>();
+            checkedluid = new List<string>();
         }
 
         private void AddRecord(string region, string uid)
@@ -98,6 +101,51 @@ namespace BNSBan
             }
         }
 
+        private void AddLocalRecord(string region, string uid)
+        {
+            if (checkedluid.Contains(uid))
+            {
+                return;
+            }
+            checkedluid.Add(uid);
+            string apibase = Config.localRecordDir + "\\" + region + "\\" + uid + "\\";
+            if(!Directory.Exists(apibase))
+            {
+                return;
+            }
+            string apiurl = apibase + "info";
+            Console.WriteLine("Checking Local [" + region + "] " + uid);
+            string[] lines = File.ReadAllLines(apiurl);
+            foreach (string line in lines)
+            {
+                if (line.StartsWith("RECD"))
+                {
+                    string[] record = line.Split('|');
+                    if (record.Length < 4)
+                    {
+                        Console.WriteLine("[Local, " + region + "," + uid + "] Error record format: " + line);
+                    }
+                    else
+                    {
+                        BanRecord bc = new BanRecord(record[1], record[2], apibase + record[3] + "\\record.html");
+                        records.Add(bc);
+                    }
+                }
+                else if (line.StartsWith("LINK"))
+                {
+                    string[] link = line.Split('|');
+                    if (link.Length < 2)
+                    {
+                        Console.WriteLine("[Local, " + region + "," + uid + "] Error link format: " + line);
+                    }
+                    else
+                    {
+                        AddLocalRecord(region, link[1]);
+                    }
+                }
+            }
+        }
+
         public static BanCheck RetriveBanRecords(Profile profile)
         {
             BanCheck result = new BanCheck();
@@ -106,6 +154,14 @@ namespace BNSBan
             foreach (string playername in profile.altsName)
             {
                 result.AddRecord(profile.region, MD5Helper.GetMd5Hash(playername));
+            }
+            if(Config.enableLocalCheck)
+            {
+                result.AddLocalRecord(profile.region, result.uid);
+                foreach (string playername in profile.altsName)
+                {
+                    result.AddLocalRecord(profile.region, MD5Helper.GetMd5Hash(playername));
+                }
             }
             return result;
         }

@@ -17,6 +17,7 @@ namespace BNSBan
         private ButtonImageSet detailImgSet = null;
         private Profile profile = null;
         private BanCheck check = null;
+        private Settings settingsForm = null;
         public BNSBlacklist()
         {
             InitializeComponent();
@@ -128,6 +129,25 @@ namespace BNSBan
             if(e.KeyCode == Keys.Enter && searchbtn.Enabled)
             {
                 searchbtn.PerformClick();
+            }
+        }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+            if(settingsForm != null)
+            {
+                if(settingsForm.IsDisposed)
+                {
+                    settingsForm = new Settings();
+                    settingsForm.Show();
+                } else
+                {
+                    settingsForm.Show();
+                }
+            } else
+            {
+                settingsForm = new Settings();
+                settingsForm.Show();
             }
         }
     }

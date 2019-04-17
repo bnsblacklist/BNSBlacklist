@@ -32,6 +32,7 @@
             this.charname = new System.Windows.Forms.TextBox();
             this.spkb = new System.Windows.Forms.Button();
             this.resultPanel = new System.Windows.Forms.Panel();
+            this.settings = new System.Windows.Forms.PictureBox();
             this.detailsbtn = new System.Windows.Forms.Button();
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.resultPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -75,6 +77,20 @@
             this.resultPanel.Size = new System.Drawing.Size(951, 100);
             this.resultPanel.TabIndex = 7;
             this.resultPanel.Visible = false;
+            // 
+            // settings
+            // 
+            this.settings.BackColor = System.Drawing.Color.Black;
+            this.settings.Image = global::BNSBan.Properties.Resources.setting;
+            this.settings.Location = new System.Drawing.Point(12, 12);
+            this.settings.MaximumSize = new System.Drawing.Size(32, 32);
+            this.settings.MinimumSize = new System.Drawing.Size(32, 32);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(32, 32);
+            this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.settings.TabIndex = 8;
+            this.settings.TabStop = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // detailsbtn
             // 
@@ -164,6 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 319);
+            this.Controls.Add(this.settings);
             this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.searchbtn);
             this.Controls.Add(this.spkb);
@@ -176,6 +193,7 @@
             this.Text = "BnsBlacklist";
             this.Load += new System.EventHandler(this.BNSBan_Load);
             this.resultPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -196,6 +214,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox statusImg;
         private System.Windows.Forms.Button detailsbtn;
+        private System.Windows.Forms.PictureBox settings;
     }
 }
 
