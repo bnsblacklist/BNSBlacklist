@@ -18,6 +18,7 @@ namespace BNSBan
         private Profile profile = null;
         private BanCheck check = null;
         private Settings settingsForm = null;
+        private AutoDetectForm detectForm = null;
         public BNSBlacklist()
         {
             InitializeComponent();
@@ -28,7 +29,8 @@ namespace BNSBan
             detailImgSet = new ButtonImageSet();
             detailImgSet.normal = MainWindowBtns.details_normal;
             detailImgSet.hover = MainWindowBtns.details_hover;
-            
+            autoDetectShowHideTimer.Enabled = false;
+            //detectForm = new AutoDetectForm();
         }
 
         private void BNSBan_Load(object sender, EventArgs e)
@@ -148,6 +150,17 @@ namespace BNSBan
             {
                 settingsForm = new Settings();
                 settingsForm.Show();
+            }
+        }
+
+        private void autoDetectShowHideTimer_Tick(object sender, EventArgs e)
+        {
+            if (Config.enableAutoDetect)
+            {
+                detectForm.Show();
+            } else
+            {
+                detectForm.Hide();
             }
         }
     }

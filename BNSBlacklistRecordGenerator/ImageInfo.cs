@@ -36,7 +36,7 @@ namespace BNSBlacklistRecordGenerator
 
                 webResponse.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }

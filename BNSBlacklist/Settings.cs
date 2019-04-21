@@ -39,5 +39,35 @@ namespace BNSBan
                 e.Handled = true;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            enableLocalRecd.Checked = Config.enableLocalCheck;
+            localRecdDir.Text = Config.localRecordDir;
+            enableNCS.Checked = Config.enableNameChangeSubmission;
+            enableAD.Checked = Config.enableAutoDetect;
+            screenshotDir.Text = Config.screenshotDir;
+            ADgap.Text = Config.autodectectGap;
+            checkupd.Checked = Config.checkUpdatesAtStart;
+            autoinstall.Checked = Config.autoInstallUpdates;
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            Config.enableLocalCheck = enableLocalRecd.Checked;
+            Config.localRecordDir = localRecdDir.Text;
+            Config.enableNameChangeSubmission = enableNCS.Checked;
+            Config.enableAutoDetect = enableAD.Checked;
+            Config.screenshotDir = screenshotDir.Text;
+            Config.autodectectGap = ADgap.Text;
+            Config.checkUpdatesAtStart = checkupd.Checked;
+            Config.autoInstallUpdates = autoinstall.Checked;
+            Config.WriteConfig();
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

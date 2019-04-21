@@ -12,6 +12,7 @@ namespace BNSBan
         [STAThread]
         static void Main()
         {
+            Config.ReadConfig();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BNSBlacklist());

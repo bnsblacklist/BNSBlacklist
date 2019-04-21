@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BNSBlacklist));
             this.charname = new System.Windows.Forms.TextBox();
             this.spkb = new System.Windows.Forms.Button();
             this.resultPanel = new System.Windows.Forms.Panel();
-            this.settings = new System.Windows.Forms.PictureBox();
             this.detailsbtn = new System.Windows.Forms.Button();
             this.statusImg = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.settings = new System.Windows.Forms.PictureBox();
             this.searchbtn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.autoDetectShowHideTimer = new System.Windows.Forms.Timer(this.components);
             this.resultPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,20 +79,6 @@
             this.resultPanel.Size = new System.Drawing.Size(951, 100);
             this.resultPanel.TabIndex = 7;
             this.resultPanel.Visible = false;
-            // 
-            // settings
-            // 
-            this.settings.BackColor = System.Drawing.Color.Black;
-            this.settings.Image = global::BNSBan.Properties.Resources.setting;
-            this.settings.Location = new System.Drawing.Point(12, 12);
-            this.settings.MaximumSize = new System.Drawing.Size(32, 32);
-            this.settings.MinimumSize = new System.Drawing.Size(32, 32);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(32, 32);
-            this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.settings.TabIndex = 8;
-            this.settings.TabStop = false;
-            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // detailsbtn
             // 
@@ -131,6 +119,20 @@
             this.pictureBox3.Size = new System.Drawing.Size(178, 53);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
+            // 
+            // settings
+            // 
+            this.settings.BackColor = System.Drawing.Color.Black;
+            this.settings.Image = global::BNSBan.Properties.Resources.setting;
+            this.settings.Location = new System.Drawing.Point(12, 12);
+            this.settings.MaximumSize = new System.Drawing.Size(32, 32);
+            this.settings.MinimumSize = new System.Drawing.Size(32, 32);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(32, 32);
+            this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.settings.TabIndex = 8;
+            this.settings.TabStop = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // searchbtn
             // 
@@ -175,6 +177,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // autoDetectShowHideTimer
+            // 
+            this.autoDetectShowHideTimer.Enabled = true;
+            this.autoDetectShowHideTimer.Interval = 1000;
+            this.autoDetectShowHideTimer.Tick += new System.EventHandler(this.autoDetectShowHideTimer_Tick);
+            // 
             // BNSBlacklist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,9 +201,9 @@
             this.Text = "BnsBlacklist";
             this.Load += new System.EventHandler(this.BNSBan_Load);
             this.resultPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -215,6 +223,7 @@
         private System.Windows.Forms.PictureBox statusImg;
         private System.Windows.Forms.Button detailsbtn;
         private System.Windows.Forms.PictureBox settings;
+        private System.Windows.Forms.Timer autoDetectShowHideTimer;
     }
 }
 
