@@ -230,9 +230,6 @@
     <None Include="Resources\off.png" />
     <None Include="Resources\on.png" />
     <None Include="Resources\pivot.png" />
-    <Content Include="Resources\userdetail.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild" />
